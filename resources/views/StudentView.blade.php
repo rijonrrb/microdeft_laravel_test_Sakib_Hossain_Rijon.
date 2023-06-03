@@ -23,7 +23,7 @@
 </head>
 <body style="background-color: #eee;"> 
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand mb-3 text-primary" href="{{route('welcome')}}">Home</a>   
+    <a class="navbar-brand mb-3 text-primary" href="{{route('AddStudent')}}">Add Student</a>   
   </nav>
  
 
@@ -38,7 +38,6 @@
             <th scope="col">Student dob</th>
             <th scope="col">Student image</th>
             <th scope="col">Student department_id</th>
-            <th scope="col">add</th>
             <th scope="col">update</th>
             <th scope="col">delete</th>
           </tr>
@@ -55,9 +54,8 @@
               <td>{{$Student->date_of_birth}}</td>
               <td>{{$Student->student_image}}</td>
               <td>{{$Student->department_id}}</td>
-              <td><a href="{{route('deletecart',['id'=>$Product->id])}}"><i class="material-icons" style="color:red" title="Delete">&#xE872;</i></a></td>
-              <td><a href="{{route('deletecart',['id'=>$Product->id])}}"><i class="material-icons" style="color:red" title="Delete">&#xE872;</i></a></td>
-              <td><a href="{{route('deletecart',['id'=>$Product->id])}}"><i class="material-icons" style="color:red" title="Delete">&#xE872;</i></a></td>
+              <td><a href="#"><i class="material-icons" style="color:red" title="Update">Update</i></a></td>
+              <td><a href="{{route('deleteStudent',['id'=>$Product->id])}}"><i class="material-icons" style="color:red" title="Delete">Delete</i></a></td>
           </tr>
           <tr class="spacer"><td colspan="100"></td></tr>
           @endforeach

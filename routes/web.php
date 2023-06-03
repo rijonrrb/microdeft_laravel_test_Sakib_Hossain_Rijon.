@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\DatabaseController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/StudentList',[DatabaseController::class, 'StudentList'])->name('StudentList');
+Route::post('/Student/Add',[DatabaseController::class, 'AddStudent'])->name('AddStudent');
+Route::get('/Student/Add',[DatabaseController::class, 'AddStudentview'])->name('AddStudent');
+Route::get('/StudentList/{id}',[DatabaseController::class, 'deleteStudent'])->name('deleteStudent');
+

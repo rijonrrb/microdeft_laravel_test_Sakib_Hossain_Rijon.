@@ -10,30 +10,44 @@ use Illuminate\Http\Request;
 
 class DatabaseController extends Controller
 {
+    public function AddStudentview(){
+
+        $Depts = Department::all();
+        return view('AddStudent')->with('Depts', $Depts);
+    }
+
     public function AddStudent(Request $request){
 
+        $Depts = Department::all();
+        return view('AddStudent')->with('Depts', $Depts);
+
+        $validate = $request->validate([
+            "name"=>'required',
+            'class'=>'required',
+            'student_image'=>'required',
+            'department_id'=>'required',
+            
+        ]
+      );
         $Student = new Student();
-        $Student->pname = $request->pname;
-        $Student->pcategory = $request->pcategory;
-        $Student->pdescription = $request->pdescription;
-        $Student->pprice = $request->pprice;
-        $Student->sid = Session::getid();
-        $result = $Product->save();
+        $Student->name = $request->name;
+        $Student->class = $request->class;
+        $Student->student_image = $request->student_image;
+        $Student->department_id = $request->department_id;
+        $result = $Student->save();
         if($result){
-          return redirect()->back();
-        }
+            return redirect()->back()->with('success', 'Student added');
+          }
+          else{
+              return redirect()->back()->with('failed', 'There is a problem in Student adding');
+          }
   }
-  public function Productlist(){
-      $count = Sold::where('sid',Session::getId())->count();
-      $lastProducts = Product::paginate(6);
-      return view('welcome')->with('lastProducts', $lastProducts)->with('count', $count);
+  public function StudentList(){
+      $Students = Student::paginate(6);
+      return view('StudentView')->with('Students', $Students);
   }
-  public function cart(){   
-      $Products = Sold::where('sid',Session::getId())->get();
-      return view('cart')->with('Products', $Products);
-  }
-  public function deletecart(Request $request){   
-      $result = Sold::where('id',$request->id)->delete();
+  public function deleteStudent(Request $request){   
+      $result = Student::where('id',$request->id)->delete();
       if($result)
       {
           return redirect()->back();
