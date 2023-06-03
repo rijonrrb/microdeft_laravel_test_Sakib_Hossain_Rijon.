@@ -70,37 +70,37 @@
             @endif
 
             <article class="card-body mx-auto mt-3" style="max-width: 400px;">
-                <form action="{{ route('AddStudent') }}" method="post">
+                <form action="{{ route('UpdateStudent') }}" method="post">
                     {{ csrf_field() }}
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-text-width" aria-hidden="true"></i></span>
                         </div>
-                        <input name="name" class="form-control" placeholder="Student name" type="text">
+                        <input name="uname" class="form-control" placeholder="Student name" type="text" value= "{{$Student->name}}">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-text-width" aria-hidden="true"></i></span>
                         </div>
-                        <input name="class" class="form-control" placeholder="Student Class" type="text">
+                        <input name="uclass" class="form-control" placeholder="Student Class" type="text" value= "{{$Student->class}}">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-text-width" aria-hidden="true"></i></span>
                         </div>
-                        <input name="date_of_birth" class="form-control" placeholder="Student DOB" type="date">
+                        <input name="udate_of_birth" class="form-control" placeholder="Student DOB" type="date" value= "{{$Student->date_of_birth}}">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-text-width" aria-hidden="true"></i></span>
                         </div>
-                        <input name="student_image" class="form-control" placeholder="Student Image" type="text">
+                        <input name="ustudent_image" class="form-control" placeholder="Student Image" type="text" value= "{{$Student->student_image}}">
                     </div> <!-- form-group// -->                   
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-text-width" aria-hidden="true"></i></span>
                         </div>
-                        <select class="form-control" name="department_id">
+                        <select class="form-control" name="udepartment_id">
                         @foreach($Depts as $Dept)
                         <option selected="{{$Dept->id}}">{{$Dept->id}}</option>
                         @endforeach                 

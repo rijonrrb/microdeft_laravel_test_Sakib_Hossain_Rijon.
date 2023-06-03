@@ -52,4 +52,25 @@ class DatabaseController extends Controller
       }
       
   }
+  public function UpdateStudentView(Request $request){   
+    $Student = Student::where('id',$request->id)->first();
+    return view('UpdateStudent')->with('Depts', $Depts);
+    return view('UpdateStudent')->with('student', $student);
+}
+
+  public function UpdateStudent(Request $request){   
+    $Student = Student::where('id',$request->id)->first();
+    $Student->name = $request->uname;
+    $Student->class = $request->uclass;
+    $Student->date_of_birth = $request->udate_of_birth;
+    $Student->student_image = $request->ustudent_image;
+    $Student->department_id = $request->udepartment_id;
+    if($result){
+        return redirect()->back()->with('success', 'Student Updated');
+      }
+      else{
+          return redirect()->back()->with('failed', 'There is a problem in Student adding');
+      }
+    
+}
 }
