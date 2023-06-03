@@ -41,7 +41,7 @@ class DatabaseController extends Controller
           }
   }
   public function StudentList(){
-      $Students = Student::paginate(6);
+      $Students = Student::paginate(3);
       return view('StudentView')->with('Students', $Students);
   }
   public function deleteStudent(Request $request){   
@@ -54,8 +54,8 @@ class DatabaseController extends Controller
   }
   public function UpdateStudentView(Request $request){   
     $Student = Student::where('id',$request->id)->first();
-    return view('UpdateStudent')->with('Depts', $Depts);
-    return view('UpdateStudent')->with('student', $student);
+    $Depts = Department::all();
+    return view('UpdateStudent')->with('Depts', $Depts)->with('Student', $Student);
 }
 
   public function UpdateStudent(Request $request){   
@@ -65,6 +65,7 @@ class DatabaseController extends Controller
     $Student->date_of_birth = $request->udate_of_birth;
     $Student->student_image = $request->ustudent_image;
     $Student->department_id = $request->udepartment_id;
+    $result = $Student->save();
     if($result){
         return redirect()->back()->with('success', 'Student Updated');
       }
