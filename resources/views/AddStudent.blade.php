@@ -88,13 +88,13 @@
                         <div class="input-group-prepend">
                             <span class="input-group-text"><i class="fa fa-text-width" aria-hidden="true"></i></span>
                         </div>
-                        <input name="date_of_birth," class="form-control" placeholder="Student DOB" type="text">
+                        <input name="date_of_birth" class="form-control" placeholder="Student DOB" type="date">
                     </div> <!-- form-group// -->
                     <div class="form-group input-group">
                         <div class="input-group-prepend">
                             <span class="input-group-text"> <i class="fa fa-text-width" aria-hidden="true"></i></span>
                         </div>
-                        <input name="student_image," class="form-control" placeholder="Student Image," type="text">
+                        <input name="student_image" class="form-control" placeholder="Student Image" type="text">
                     </div> <!-- form-group// -->                   
                     <div class="form-group input-group">
                         <div class="input-group-prepend">

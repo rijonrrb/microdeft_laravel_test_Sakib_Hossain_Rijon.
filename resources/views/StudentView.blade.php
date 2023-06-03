@@ -54,8 +54,8 @@
               <td>{{$Student->date_of_birth}}</td>
               <td>{{$Student->student_image}}</td>
               <td>{{$Student->department_id}}</td>
-              <td><a href="#"><i class="material-icons" style="color:red" title="Update">Update</i></a></td>
-              <td><a href="{{route('deleteStudent',['id'=>$Product->id])}}"><i class="material-icons" style="color:red" title="Delete">Delete</i></a></td>
+              <td><a href="#">Update</a></td>
+              <td><a href="{{route('deleteStudent',['id'=>$Student->id])}}">Delete</a></td>
           </tr>
           <tr class="spacer"><td colspan="100"></td></tr>
           @endforeach

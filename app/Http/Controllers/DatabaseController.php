@@ -18,9 +18,6 @@ class DatabaseController extends Controller
 
     public function AddStudent(Request $request){
 
-        $Depts = Department::all();
-        return view('AddStudent')->with('Depts', $Depts);
-
         $validate = $request->validate([
             "name"=>'required',
             'class'=>'required',
@@ -32,6 +29,7 @@ class DatabaseController extends Controller
         $Student = new Student();
         $Student->name = $request->name;
         $Student->class = $request->class;
+        $Student->date_of_birth = $request->date_of_birth;
         $Student->student_image = $request->student_image;
         $Student->department_id = $request->department_id;
         $result = $Student->save();
